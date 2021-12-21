@@ -41,7 +41,7 @@ namespace Core.Services
        {
             var Obavijest = new Obavijest()
             {
-                AdminID = "a870b9bd-e7f7-4e10-8879-e70f4e42aa2f",
+                AdminID = obavijestVM.AdminID,
                 Naslov = obavijestVM.Naslov,
                 Id = obavijestVM.Id,
                 SekcijaID = obavijestVM.SekcijaID,

@@ -1,11 +1,11 @@
-﻿using Core.Interfaces;
+﻿using ClosedXML.Excel;
+using Core.Interfaces;
 using Data.ViewModels;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace RS2_Seminarski.Controllers
@@ -40,10 +40,13 @@ namespace RS2_Seminarski.Controllers
         {
             return Ok(_uplataService.Get());
         }
-        [HttpGet("{id}")]
-        public IActionResult GetByID(string id)
+        [HttpGet("{id}/{mjesecid}")]
+        public IActionResult GetByID(string id=null,int mjesecid=0)
         {
-            return Ok(_uplataService.GetByID(id));
+            return Ok(_uplataService.GetByID(id,mjesecid));
         }
+      
+        
+        
     }
 }

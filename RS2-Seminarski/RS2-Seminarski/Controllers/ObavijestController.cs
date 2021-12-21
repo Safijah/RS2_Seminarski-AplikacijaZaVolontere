@@ -23,6 +23,8 @@ namespace RS2_Seminarski.Controllers
         [HttpPost]
         public IActionResult Insert(ObavijestVM obavijestVM)
         {
+            var admin= HttpContext.User.Claims.ToList();
+           obavijestVM.AdminID= admin[1].Value;
                var result= _obavijestService.Insert(obavijestVM);
             try
             {

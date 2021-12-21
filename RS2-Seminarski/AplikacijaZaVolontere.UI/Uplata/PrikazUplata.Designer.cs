@@ -38,6 +38,8 @@ namespace AplikacijaZaVolontere.UI.Uplata
             this.label3 = new System.Windows.Forms.Label();
             this.cmbStudenti = new System.Windows.Forms.ComboBox();
             this.btnDodaj = new System.Windows.Forms.Button();
+            this.pieChart1 = new LiveCharts.WinForms.PieChart();
+            this.btnSnimi = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUplate)).BeginInit();
             this.SuspendLayout();
@@ -83,6 +85,7 @@ namespace AplikacijaZaVolontere.UI.Uplata
             this.cmbMjeseci.Size = new System.Drawing.Size(121, 23);
             this.cmbMjeseci.TabIndex = 2;
             this.cmbMjeseci.Visible = false;
+            this.cmbMjeseci.SelectedValueChanged += new System.EventHandler(this.cmbMjeseci_SelectedValueChanged);
             // 
             // label1
             // 
@@ -106,7 +109,7 @@ namespace AplikacijaZaVolontere.UI.Uplata
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(318, 9);
+            this.label3.Location = new System.Drawing.Point(161, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 15);
             this.label3.TabIndex = 5;
@@ -115,7 +118,7 @@ namespace AplikacijaZaVolontere.UI.Uplata
             // cmbStudenti
             // 
             this.cmbStudenti.FormattingEnabled = true;
-            this.cmbStudenti.Location = new System.Drawing.Point(318, 41);
+            this.cmbStudenti.Location = new System.Drawing.Point(161, 41);
             this.cmbStudenti.Name = "cmbStudenti";
             this.cmbStudenti.Size = new System.Drawing.Size(121, 23);
             this.cmbStudenti.TabIndex = 6;
@@ -123,19 +126,40 @@ namespace AplikacijaZaVolontere.UI.Uplata
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(640, 12);
+            this.btnDodaj.Location = new System.Drawing.Point(13, 164);
             this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(75, 23);
+            this.btnDodaj.Size = new System.Drawing.Size(120, 23);
             this.btnDodaj.TabIndex = 7;
             this.btnDodaj.Text = "Dodaj novu uplatu";
             this.btnDodaj.UseVisualStyleBackColor = true;
             this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
+            // 
+            // pieChart1
+            // 
+            this.pieChart1.Location = new System.Drawing.Point(380, 12);
+            this.pieChart1.Name = "pieChart1";
+            this.pieChart1.Size = new System.Drawing.Size(386, 196);
+            this.pieChart1.TabIndex = 8;
+            this.pieChart1.Text = "pieChart1";
+            this.pieChart1.ChildChanged += new System.EventHandler<System.Windows.Forms.Integration.ChildChangedEventArgs>(this.pieChart1_ChildChanged);
+            // 
+            // btnSnimi
+            // 
+            this.btnSnimi.Location = new System.Drawing.Point(13, 207);
+            this.btnSnimi.Name = "btnSnimi";
+            this.btnSnimi.Size = new System.Drawing.Size(120, 23);
+            this.btnSnimi.TabIndex = 9;
+            this.btnSnimi.Text = "Snimi izvještaj";
+            this.btnSnimi.UseVisualStyleBackColor = true;
+            this.btnSnimi.Click += new System.EventHandler(this.btnSnimi_Click);
             // 
             // PrikazUplata
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnSnimi);
+            this.Controls.Add(this.pieChart1);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.cmbStudenti);
             this.Controls.Add(this.label3);
@@ -165,5 +189,7 @@ namespace AplikacijaZaVolontere.UI.Uplata
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmbStudenti;
         private System.Windows.Forms.Button btnDodaj;
+        private LiveCharts.WinForms.PieChart pieChart1;
+        private System.Windows.Forms.Button btnSnimi;
     }
 }

@@ -10,6 +10,9 @@ namespace Core.Interfaces
     {
         Task<RezultatVM> EvidentiranjeUplateAsync(UplataVM uplata);
         List<PrikazUplataVM> Get();
-        PrikazUplataVM GetByID(string VolonterID);
+        List<PrikazUplataVM> GetByID(string VolonterID=null, int MjesecID = 0);
+        
+
+
     }
 }

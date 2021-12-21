@@ -7,8 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.95.4" />
     <PackageReference Include="Flurl.Http" Version="3.2.0" />
-    <PackageReference Include="LiveCharts.WinForms" Version="0.9.7.1" />
+    <PackageReference Include="LiveCharts.WinForms.NetCore3" Version="0.9.7" />
+    <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4420.1017" />
   </ItemGroup>
 
   <ItemGroup>

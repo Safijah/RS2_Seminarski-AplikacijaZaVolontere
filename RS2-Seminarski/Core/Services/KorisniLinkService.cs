@@ -41,7 +41,7 @@ namespace Core.Services
             var KorisniLink = new KorisniLink()
             {
                 Link = korisniLinkVM.Link,
-                AdminID = "a870b9bd-e7f7-4e10-8879-e70f4e42aa2f",
+                AdminID =korisniLinkVM.AdminID,
                 Naziv = korisniLinkVM.Naziv
             };
             _appDbContext.Add(KorisniLink);

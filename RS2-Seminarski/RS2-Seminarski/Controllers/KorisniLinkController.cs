@@ -23,6 +23,8 @@ namespace RS2_Seminarski.Controllers
         [HttpPost]
         public IActionResult Insert(KorisniLinkVM korisniLinkVM)
         {
+            var admin = HttpContext.User.Claims.ToList();
+            korisniLinkVM.AdminID = admin[1].Value;
             var result = _korisniLinkService.Insert(korisniLinkVM);
             try
             {
