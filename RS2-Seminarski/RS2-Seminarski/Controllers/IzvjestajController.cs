@@ -13,10 +13,10 @@ namespace RS2_Seminarski.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class IzvještajController : ControllerBase
+    public class IzvjestajController : ControllerBase
     {
-        private IIzvještajService _izvještajService;
-        public IzvještajController(IIzvještajService izvještajService)
+        private IIzvjestajService _izvještajService;
+        public IzvjestajController(IIzvjestajService izvještajService)
         {
             _izvještajService = izvještajService;
         }

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,6 +16,12 @@ namespace RS2_Seminarski
 
             //add new new data or update data
             
+        }
+        public void InsertData(AppDbContext context)
+        {
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "Script", "radvolontera.sql");
+            var query = File.ReadAllText(path);
+            context.Database.ExecuteSqlRaw(query);
         }
     }
 }

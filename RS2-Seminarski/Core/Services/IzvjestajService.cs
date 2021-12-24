@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace Core.Services
 {
-    public class IzvještajService:IIzvještajService
+    public class IzvjestajService:IIzvjestajService
     {
         private AppDbContext _appDbContext;
         private IEmailService _emailService;
-        public IzvještajService(AppDbContext appDbContext,  IEmailService emailService)
+        public IzvjestajService(AppDbContext appDbContext,  IEmailService emailService)
         {
             _appDbContext = appDbContext;
             _emailService = emailService;

@@ -20,6 +20,7 @@ namespace RS2_Seminarski
             {
                 var database = scope.ServiceProvider.GetService<AppDbContext>();
                 new SetupService().Init(database);
+                new SetupService().InsertData(database);
             }
 
             //test

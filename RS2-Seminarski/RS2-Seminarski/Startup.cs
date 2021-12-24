@@ -52,7 +52,7 @@ namespace RS2_Seminarski
             services.AddTransient<IKorisnikService, KorisnikService>();
             services.AddTransient<IUplataService, UplataService>();
             services.AddTransient<INajavaService, NajavaService>();
-            services.AddTransient<IIzvještajService, IzvještajService>();
+            services.AddTransient<IIzvjestajService, IzvjestajService>();
             services.AddTransient<IObavijestService, ObavijestService>();
             services.AddTransient<IKorisniLinkService, KorisniLinkService>();
             services.AddTransient<IGradService, GradService>();

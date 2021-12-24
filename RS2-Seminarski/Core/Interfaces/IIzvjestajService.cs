@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Core.Interfaces
 {
-   public  interface IIzvještajService
+   public  interface IIzvjestajService
     {
          void Insert(IzvještajVM izvještajVM);
         void Update(IzvještajVM izvještajVM);
