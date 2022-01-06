@@ -19,7 +19,7 @@ namespace RS2_Seminarski
         }
         public void InsertData(AppDbContext context)
         {
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "Script", "radvolontera.sql");
+            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Script", "radvolontera.sql");
             var query = File.ReadAllText(path);
             context.Database.ExecuteSqlRaw(query);
         }

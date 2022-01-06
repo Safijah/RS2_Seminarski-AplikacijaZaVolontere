@@ -15,17 +15,17 @@ namespace RS2_Seminarski.Controllers
     [Authorize]
     public class IzvjestajController : ControllerBase
     {
-        private IIzvjestajService _izvještajService;
-        public IzvjestajController(IIzvjestajService izvještajService)
+        private IIzvjestajService _izvjestajService;
+        public IzvjestajController(IIzvjestajService izvjestajService)
         {
-            _izvještajService = izvještajService;
+            _izvjestajService = izvjestajService;
         }
         [HttpPost]
-        public IActionResult Insert(IzvještajVM izvještajVM)
+        public IActionResult Insert(IzvjestajVM izvještajVM)
         {
             try
             {
-                _izvještajService.Insert(izvještajVM);
+                _izvjestajService.Insert(izvještajVM);
                 return Ok();
             }
             catch (Exception ex)
@@ -38,7 +38,7 @@ namespace RS2_Seminarski.Controllers
         {
             try
             {
-                return Ok(_izvještajService.Get());
+                return Ok(_izvjestajService.Get());
             }
             catch (Exception ex)
             {
@@ -50,7 +50,7 @@ namespace RS2_Seminarski.Controllers
         {
             try
             {
-                return Ok(_izvještajService.GetByID(id));
+                return Ok(_izvjestajService.GetByID(id));
             }
             catch (Exception ex)
             {
@@ -59,11 +59,11 @@ namespace RS2_Seminarski.Controllers
             }
         }
         [HttpPut]
-        public IActionResult Update(IzvještajVM izvještajVM)
+        public IActionResult Update(IzvjestajVM izvještajVM)
         {
             try
             {
-                _izvještajService.Update(izvještajVM);
+                _izvjestajService.Update(izvještajVM);
                 return Ok();
             }
             catch (Exception ex)
@@ -75,7 +75,7 @@ namespace RS2_Seminarski.Controllers
         [HttpPost("PromjenaStanja")]
         public async Task<IActionResult> IzmjenaAsync(StanjeVM vm)
         {
-            var result = await _izvještajService.PromjenaStanjaAsync(vm);
+            var result = await _izvjestajService.PromjenaStanjaAsync(vm);
             try
             {
 
@@ -92,7 +92,7 @@ namespace RS2_Seminarski.Controllers
         {
             try
             {
-                return Ok(_izvještajService.GetByStanje(id));
+                return Ok(_izvjestajService.GetByStanje(id));
             }
             catch (Exception ex)
             {

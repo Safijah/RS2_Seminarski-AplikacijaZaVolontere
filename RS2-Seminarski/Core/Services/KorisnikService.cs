@@ -128,11 +128,11 @@ namespace Core.Services
                 new Claim(ClaimTypes.NameIdentifier, user.Id),
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["AuthSettings:Key"]));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("This is the key that we will use in the encryption"));
 
             var token = new JwtSecurityToken(
-                issuer: _configuration["AuthSettings:Issuer"],
-                audience: _configuration["AuthSettings:Audience"],
+                issuer: "http://localhost:5010/",
+                audience: "http://localhost:5010/",
                 claims: claims,
                 expires: DateTime.Now.AddDays(30),
                 signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha256));

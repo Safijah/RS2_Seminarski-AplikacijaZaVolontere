@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Data.ViewModels
 {
-    public class IzvještajPrikazVM
+    public class IzvjestajPrikazVM
     {
         public int Id { get; set; }
         public string Cilj { get; set; }

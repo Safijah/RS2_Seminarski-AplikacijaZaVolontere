@@ -25,6 +25,7 @@ namespace RS2_Seminarski
 
             //test
             host.Run();
+
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

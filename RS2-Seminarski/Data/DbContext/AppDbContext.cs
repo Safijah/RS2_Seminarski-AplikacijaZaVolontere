@@ -16,7 +16,7 @@ namespace Data.DbContext
         public DbSet<DetaljiPlana> DetaljiPlana { get; set; }
         public DbSet<GodisnjiPlan> GodisnjiPlan { get; set; }
         public DbSet<Grad> Grad { get; set; }
-        public DbSet<Izvještaj> Izvještaj { get; set; }
+        public DbSet<Izvjestaj> Izvjestaj { get; set; }
         public DbSet<Korisnik> Korisnik { get; set; }
         public DbSet<KorisniLink> KorisniLink { get; set; }
         public DbSet<Najava> Najava { get; set; }

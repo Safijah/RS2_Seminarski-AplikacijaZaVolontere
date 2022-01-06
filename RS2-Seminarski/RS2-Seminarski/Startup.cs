@@ -42,10 +42,10 @@ namespace RS2_Seminarski
                 {
                     ValidateIssuer = true,
                     ValidateAudience = true,
-                    ValidAudience = Configuration["AuthSettings:Audience"],
-                    ValidIssuer = Configuration["AuthSettings:Issuer"],
+                    ValidAudience = "http://localhost:5010/",
+                    ValidIssuer = "http://localhost:5010/",
                     RequireExpirationTime = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["AuthSettings:Key"])),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("This is the key that we will use in the encryption")),
                     ValidateIssuerSigningKey = true
                 };
             });
@@ -107,13 +107,13 @@ namespace RS2_Seminarski
                     
                 });
             }
-            //app.UseSwagger();
-            //app.UseSwaggerUI(c =>
-            //{
-            //    c.SwaggerEndpoint("/swagger/v1.0/swagger.json", "Versioned API v1.0");
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Authorization");
 
-            //});
-            app.UseHttpsRedirection();
+            });
+            // app.UseHttpsRedirection();
 
             app.UseRouting();
             app.UseAuthentication();

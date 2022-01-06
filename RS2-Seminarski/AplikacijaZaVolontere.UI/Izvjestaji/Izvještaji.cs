@@ -20,7 +20,7 @@ namespace AplikacijaZaVolontere.UI.Izvjestaji
 
         private async void Izvještaji_Load(object sender, EventArgs e)
         {
-            dgvIzvjestaji.DataSource = await _apiService.Get<List<IzvještajPrikazVM>>();
+            dgvIzvjestaji.DataSource = await _apiService.Get<List<IzvjestajPrikazVM>>();
             dgvIzvjestaji.RightToLeft = RightToLeft.No;
             dgvIzvjestaji.Columns["PromjenaStanja"].DisplayIndex = 9;
         }
@@ -29,33 +29,33 @@ namespace AplikacijaZaVolontere.UI.Izvjestaji
         {
             if (e.ColumnIndex == 0)
             {
-                var result = dgvIzvjestaji.SelectedRows[0].DataBoundItem as IzvještajPrikazVM;
+                var result = dgvIzvjestaji.SelectedRows[0].DataBoundItem as IzvjestajPrikazVM;
                 if (result != null)
                 {
                     PromjenaStanjaIzvještaja frm = new PromjenaStanjaIzvještaja(result.Id);
                     frm.ShowDialog();
-                    dgvIzvjestaji.DataSource = await _apiService.Get<List<IzvještajPrikazVM>>();
+                    dgvIzvjestaji.DataSource = await _apiService.Get<List<IzvjestajPrikazVM>>();
                 }
             }
         }
 
         private async void btnPoslani_Click(object sender, EventArgs e)
         {
-            var result = await _apiServiceStanje.GetByID<List<IzvještajPrikazVM>>(1);
+            var result = await _apiServiceStanje.GetByID<List<IzvjestajPrikazVM>>(1);
             dgvIzvjestaji.DataSource = result;
             groupBox1.Text = "Poslani izvještaji";
         }
 
         private async void button2_Click(object sender, EventArgs e)
         {
-            var result = await _apiServiceStanje.GetByID<List<IzvještajPrikazVM>>(3);
+            var result = await _apiServiceStanje.GetByID<List<IzvjestajPrikazVM>>(3);
             dgvIzvjestaji.DataSource = result;
             groupBox1.Text = "Prihvaćeni izvještaji";
         }
 
         private async void button3_Click(object sender, EventArgs e)
         {
-            var result = await _apiServiceStanje.GetByID<List<IzvještajPrikazVM>>(2);
+            var result = await _apiServiceStanje.GetByID<List<IzvjestajPrikazVM>>(2);
             dgvIzvjestaji.DataSource = result;
             groupBox1.Text = "Vraćeni izvještaji";
         }

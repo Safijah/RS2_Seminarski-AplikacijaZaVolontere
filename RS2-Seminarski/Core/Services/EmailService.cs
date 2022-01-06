@@ -18,7 +18,7 @@ namespace Core.Services
         }
         public async Task SendEmailAsync(string toEmail, string subject, string content)
         {
-            var apiKey = _configuration["SendGridAPIKey"];
+            var apiKey = "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";
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("radvolontera@gmail.com", "Rad volontera");
             var to = new EmailAddress(toEmail);

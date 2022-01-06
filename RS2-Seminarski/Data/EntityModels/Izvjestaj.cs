@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Data.EntityModels
 {
-    public class Izvještaj
+    public class Izvjestaj
     {
         public int Id { get; set; }
         public string Cilj { get; set; }

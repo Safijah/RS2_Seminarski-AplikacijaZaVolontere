@@ -19,43 +19,43 @@ namespace Core.Services
             _appDbContext = appDbContext;
             _emailService = emailService;
         }
-        public void Insert(IzvještajVM izvještajVM)
+        public void Insert(IzvjestajVM izvjestajVM)
         {
-            var Izvjestaj = new Izvještaj()
+            var Izvjestaj = new Izvjestaj()
             {
-                Cilj = izvještajVM.Cilj,
-                Teme = izvještajVM.Teme,
-                VolonterskeAktivnosti = izvještajVM.VolonterskeAktivnosti,
-                PrisutniUcenici = izvještajVM.PrisutniUcenici,
-                OdsutniUcenici = izvještajVM.OdsutniUcenici,
-                Napomena = izvještajVM.Napomena,
-                VolonterID = izvještajVM.VolonterID,
+                Cilj = izvjestajVM.Cilj,
+                Teme = izvjestajVM.Teme,
+                VolonterskeAktivnosti = izvjestajVM.VolonterskeAktivnosti,
+                PrisutniUcenici = izvjestajVM.PrisutniUcenici,
+                OdsutniUcenici = izvjestajVM.OdsutniUcenici,
+                Napomena = izvjestajVM.Napomena,
+                VolonterID = izvjestajVM.VolonterID,
                 StanjeID=1,
-                NajavaID=izvještajVM.NajavaID
+                NajavaID= izvjestajVM.NajavaID
             };
             _appDbContext.Add(Izvjestaj);
             _appDbContext.SaveChanges();
         }
-        public void Update(IzvještajVM izvještajVM)
+        public void Update(IzvjestajVM izvjestajVM)
         {
-            var Izvjestaj = _appDbContext.Izvještaj.Find(izvještajVM.Id);
+            var Izvjestaj = _appDbContext.Izvjestaj.Find(izvjestajVM.Id);
             if(Izvjestaj!=null)
             {
-                Izvjestaj.Cilj = izvještajVM.Cilj;
-                Izvjestaj.Teme = izvještajVM.Teme;
-                Izvjestaj.VolonterskeAktivnosti = izvještajVM.VolonterskeAktivnosti;
-                Izvjestaj.PrisutniUcenici = izvještajVM.PrisutniUcenici;
-                Izvjestaj.OdsutniUcenici = izvještajVM.OdsutniUcenici;
-                Izvjestaj.Napomena = izvještajVM.Napomena;
-                Izvjestaj.VolonterID = izvještajVM.VolonterID;
+                Izvjestaj.Cilj = izvjestajVM.Cilj;
+                Izvjestaj.Teme = izvjestajVM.Teme;
+                Izvjestaj.VolonterskeAktivnosti = izvjestajVM.VolonterskeAktivnosti;
+                Izvjestaj.PrisutniUcenici = izvjestajVM.PrisutniUcenici;
+                Izvjestaj.OdsutniUcenici = izvjestajVM.OdsutniUcenici;
+                Izvjestaj.Napomena = izvjestajVM.Napomena;
+                Izvjestaj.VolonterID = izvjestajVM.VolonterID;
                 Izvjestaj.StanjeID = 1;
-                Izvjestaj.NajavaID = izvještajVM.NajavaID;
+                Izvjestaj.NajavaID = izvjestajVM.NajavaID;
                 _appDbContext.SaveChanges();
             }
         }
-        public List<IzvještajPrikazVM> Get()
+        public List<IzvjestajPrikazVM> Get()
         {
-            return _appDbContext.Izvještaj.Where(a => a.StanjeID == 1).Select(a=>new IzvještajPrikazVM {
+            return _appDbContext.Izvjestaj.Where(a => a.StanjeID == 1).Select(a=>new IzvjestajPrikazVM {
                 Cilj = a.Cilj,
                 Teme = a.Teme,
                 VolonterskeAktivnosti = a.VolonterskeAktivnosti,
@@ -67,9 +67,9 @@ namespace Core.Services
                 Id = a.Id
             }).ToList();
         }
-        public IzvještajVM GetByID(int id)
+        public IzvjestajVM GetByID(int id)
         {
-            var Izvjestaj = _appDbContext.Izvještaj.Where(a=>a.Id==id).Select(a=>new IzvještajVM
+            var Izvjestaj = _appDbContext.Izvjestaj.Where(a=>a.Id==id).Select(a=>new IzvjestajVM
             {
                 Cilj = a.Cilj,
                 Teme = a.Teme,
@@ -85,7 +85,7 @@ namespace Core.Services
         }
         public async Task<RezultatVM> PromjenaStanjaAsync(StanjeVM vm)
         {
-            var Izvjestaj = _appDbContext.Izvještaj.Find(vm.Id);
+            var Izvjestaj = _appDbContext.Izvjestaj.Find(vm.Id);
             if(Izvjestaj!=null)
             {
                 Izvjestaj.StanjeID = vm.StanjeID;
@@ -118,9 +118,9 @@ namespace Core.Services
             }
         }
 
-        public List<IzvještajPrikazVM> GetByStanje(int StanjeID)
+        public List<IzvjestajPrikazVM> GetByStanje(int StanjeID)
         {
-            return _appDbContext.Izvještaj.Where(a => a.StanjeID == StanjeID).Select(a => new IzvještajPrikazVM
+            return _appDbContext.Izvjestaj.Where(a => a.StanjeID == StanjeID).Select(a => new IzvjestajPrikazVM
             {
                 Cilj = a.Cilj,
                 Teme = a.Teme,

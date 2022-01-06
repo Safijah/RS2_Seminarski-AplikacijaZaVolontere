@@ -9,11 +9,11 @@ namespace Core.Interfaces
 {
    public  interface IIzvjestajService
     {
-         void Insert(IzvještajVM izvještajVM);
-        void Update(IzvještajVM izvještajVM);
-        List<IzvještajPrikazVM> Get();
-        IzvještajVM GetByID(int id);
+         void Insert(IzvjestajVM izvještajVM);
+        void Update(IzvjestajVM izvještajVM);
+        List<IzvjestajPrikazVM> Get();
+        IzvjestajVM GetByID(int id);
         Task<RezultatVM> PromjenaStanjaAsync(StanjeVM vm);
-        List<IzvještajPrikazVM> GetByStanje(int StanjeID);
+        List<IzvjestajPrikazVM> GetByStanje(int StanjeID);
     }
 }
